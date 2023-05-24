@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# 1. Скачивание и установка Miniconda
+# 1. Download and install Miniconda
 curl -sL "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" > "Miniconda3.sh"
 bash Miniconda3.sh -b -p $HOME/miniconda3
 rm Miniconda3.sh
 export PATH="$HOME/miniconda3/bin:$PATH"
 
-# 2. Установка build-essential
+# 2. Install build-essential
 sudo apt install -y build-essential
 
-# 3. Создание и активация conda-окружения
+# 3. Create and activate conda environment
 conda create -y -n textgen python=3.10.9
 conda init bash
 source ~/.bashrc
@@ -18,14 +18,16 @@ conda env list
 which python
 which pip
 
-# 4. Установка PyTorch и зависимостей
+# 4. Install PyTorch and dependencies
 pip install torch torchvision torchaudio
 pip install pdfminer.six
 
-# 5. Установка требуемых пакетов и обновление репозитория
+# 5. Install required packages and update repository
 if [ ! -d "/notebooks/learn-langchain" ]; then
     git clone https://github.com/paolorechia/learn-langchain
 fi
+
+# 6. Install learn-langchain and dependencies of text-generation-webui
 cd /notebooks/learn-langchain
 git pull
 pip install -r requirements.txt --upgrade
@@ -33,12 +35,12 @@ pip install -r requirements.txt --upgrade
 cd /notebooks/text-generation-webui
 pip install -r requirements.txt --upgrade
 
-
 if [ ! -d "repositories" ]; then
     mkdir repositories
 fi
 cd repositories
 
+# 7. Install GPTQ-for-LLaMa
 if [ ! -d "GPTQ-for-LLaMa" ]; then
     git clone https://github.com/qwopqwop200/GPTQ-for-LLaMa
 fi
@@ -46,15 +48,16 @@ cd GPTQ-for-LLaMa/
 git pull
 pip install -r requirements.txt --upgrade
 
+# 8. Install ipykernel and gradio and aim
 conda install -y -c anaconda ipykernel
 python -m ipykernel install --user --name textgen
 pip install -U gradio
 pip install aim
 
-# Переход в каталог text-generation-webui
-cd /notebooks/text-generation-webui
 
-# Варианты запуска
+
+# 9. Launch webui
+cd /notebooks/text-generation-webui
 echo "Выберите вариант запуска:"
 echo "1. Запуск с веб-интерфейсом"
 echo "2. Запуск только с API"
