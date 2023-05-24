@@ -49,6 +49,7 @@ pip install -r requirements.txt --upgrade
 conda install -y -c anaconda ipykernel
 python -m ipykernel install --user --name textgen
 pip install -U gradio
+pip install aim
 
 # Переход в каталог text-generation-webui
 cd /notebooks/text-generation-webui
