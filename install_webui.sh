@@ -54,7 +54,7 @@ python -m ipykernel install --user --name textgen
 pip install -U gradio
 pip install aim
 
-# Install ssh keys
+# 9. Install ssh keys
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 sudo cp /notebooks/sasha.pub ~/.ssh/
@@ -64,7 +64,7 @@ git config --global user.email "sasha@micra.io"
 git config --global user.name "Sasha Alyushin"
 
 
-# 9. Launch webui
+# 10. Launch webui
 cd /notebooks/text-generation-webui
 echo "Выберите вариант запуска:"
 echo "1. Запуск с веб-интерфейсом"
