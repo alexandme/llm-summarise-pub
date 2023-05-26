@@ -1,3 +1,4 @@
+The following instructions are for setting up an SSH and Github connection on a new machine.
 
 Create a directory for a key
 ```
