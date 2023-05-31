@@ -52,7 +52,7 @@ pip install -r requirements.txt --upgrade
 conda install -y -c anaconda ipykernel
 python -m ipykernel install --user --name textgen
 pip install -U gradio
-pip install aim
+pip install wandb
 
 # 9. Install ssh keys
 mkdir ~/.ssh
