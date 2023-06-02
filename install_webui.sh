@@ -51,11 +51,7 @@ pip install -r requirements.txt --upgrade
 # 8. Install ipykernel and gradio and wandb
 conda install -y -c anaconda ipykernel
 python -m ipykernel install --user --name textgen
-pip install -U gradio
-pip install wandb
-# Install textstat and spacy which is used by wandb
-pip install textstat
-pip install spacy
+pip install -r requirements.txt --upgrade
 
 # 9. Install ssh keys
 mkdir ~/.ssh
