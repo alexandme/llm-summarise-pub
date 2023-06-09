@@ -1,5 +1,6 @@
 files/
 learn-langchain/
+!learn-langchain/requirements.txt
 text-generation-webui/
 learn-langchain_backup/
 .aim/
