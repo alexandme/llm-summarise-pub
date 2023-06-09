@@ -2,6 +2,7 @@ files/
 learn-langchain/
 !learn-langchain/requirements.txt
 text-generation-webui/
+!text-generation-webui/requirements.txt
 learn-langchain_backup/
 .aim/
 sasha
