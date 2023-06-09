@@ -51,7 +51,7 @@ pip install -r requirements.txt --upgrade
 # 8. Install ipykernel and gradio and wandb
 conda install -y -c anaconda ipykernel
 python -m ipykernel install --user --name textgen
-pip install -r requirements.txt --upgrade
+pip install -r /notebooks/requirements.txt --upgrade
 
 # 9. Install ssh keys
 mkdir ~/.ssh

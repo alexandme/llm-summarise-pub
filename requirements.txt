@@ -1,7 +1,9 @@
 pip install -U gradio
-pip install wandb
+# pip install wandb
 # Install textstat and spacy which is used by wandb
 pip install textstat
 pip install spacy
 pip install langchain
 pip install ipywidgets
+pip install clearml
+python -m spacy download en_core_web_sm
