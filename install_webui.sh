@@ -14,13 +14,40 @@ conda create -y -n textgen python=3.10.9
 conda init bash
 source ~/.bashrc
 source activate textgen
-conda env list
-which python
-which pip
 
 # 4. Install PyTorch and dependencies
 pip install torch torchvision torchaudio
 pip install pdfminer.six
+
+
+# Clone text-generation-webui repository to tmp folder
+
+# If /tmp folder does not exist, create it
+if [ ! -d "/tmp" ]; then
+    mkdir /tmp
+fi
+cd /tmp
+git clone https://github.com/oobabooga/text-generation-webui.git
+
+# Copy all files from repo root folder to local folder
+external_repo="/tmp/text-generation-webui"
+local_repo="/notebooks/text-generation-webui"
+find $external_repo -maxdepth 1 -type f -exec cp -t $local_repo {} +
+
+# Create an .rsync-filter file in the temporary folder
+echo "- loras/" > /tmp/text-generation-webui/.rsync-filter
+echo "- models/" >> /tmp/text-generation-webui/.rsync-filter
+echo "- prompts/" >> /tmp/text-generation-webui/.rsync-filter
+echo "- repositories/" >> /tmp/text-generation-webui/.rsync-filter
+echo "- softprompts" >> /tmp/text-generation-webui/.rsync-filter
+echo "- training" >> /tmp/text-generation-webui/.rsync-filter
+
+rsync -av --filter=': .rsync-filter' /tmp/text-generation-webui/ /notebooks/text-generation-webui/
+
+# Remove temporary folder
+rm -rf /tmp/text-generation-webui
+
+
 
 # 5. Install required packages and update repository
 if [ ! -d "/notebooks/learn-langchain" ]; then
@@ -48,7 +75,7 @@ cd GPTQ-for-LLaMa/
 git pull
 pip install -r requirements.txt --upgrade
 
-# 8. Install ipykernel and gradio and wandb
+# 8. Install ipykernel
 conda install -y -c anaconda ipykernel
 python -m ipykernel install --user --name textgen
 pip install -r /notebooks/requirements.txt --upgrade
