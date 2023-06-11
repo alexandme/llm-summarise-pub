@@ -14,10 +14,9 @@ chmod 600 ~/.ssh/sasha.pub
 Add key to start using with Github
 Run in terminal
 ```
-ssh-agent
+eval "$(ssh-agent -s)"
 ```
-Run output in terminal
-Then run
+
 ```
 ssh-add ~/.ssh/sasha
 ```
