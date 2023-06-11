@@ -97,8 +97,8 @@ cd /notebooks/text-generation-webui
 
 while true; do
     echo "Выберите вариант запуска:"
-    echo "1. Запуск с веб-интерфейсом"
-    echo "2. Запуск только с API"
+    echo "1. API и WebUI"
+    echo "2. Только API"
 
     read -p "Введите номер варианта (1-2): " choice
 
