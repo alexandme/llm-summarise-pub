@@ -10,6 +10,7 @@ Copy keys and change rights
 sudo cp /notebooks/sasha.pub ~/.ssh/
 sudo cp /notebooks/sasha ~/.ssh/
 chmod 600 ~/.ssh/sasha.pub
+chmod 600 /root/.ssh/sasha
 ```
 Add key to start using with Github
 Run in terminal
