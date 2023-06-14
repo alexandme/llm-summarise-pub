@@ -56,7 +56,7 @@ fi
 
 # 6. Install learn-langchain and dependencies of text-generation-webui
 cd /notebooks/learn-langchain
-git pull
+git clone https://github.com/paolorechia/learn-langchain .
 pip install -r requirements.txt --upgrade
 
 cd /notebooks/text-generation-webui
