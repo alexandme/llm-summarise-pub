@@ -26,3 +26,8 @@ Add Github credentials
 git config --global user.email "sasha@micra.io"
 git config --global user.name "Sasha Alyushin"
 ```
+
+To make sh scripts executable
+```
+chmod +x /notebooks/*.sh
+```
