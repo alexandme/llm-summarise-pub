@@ -1,5 +1,7 @@
 # pip install wandb
 # Install textstat and spacy which is used by wandb
+export PATH="$HOME/miniconda3/bin:$PATH"
+source activate textgen
 pip install textstat
 pip install spacy
 pip install langchain
