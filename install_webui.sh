@@ -77,7 +77,14 @@ pip install -r requirements.txt --upgrade
 # Install ipykernel
 conda install -y -c anaconda ipykernel
 python -m ipykernel install --user --name textgen
+
+# Install custom packages
+
+export PATH="$HOME/miniconda3/bin:$PATH"
+source activate textgen
+
 pip install -r /notebooks/requirements.txt --upgrade
+python -m spacy download en_core_web_sm
 
 # 9. Install ssh keys
 mkdir ~/.ssh
