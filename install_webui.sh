@@ -54,6 +54,7 @@ fi
 
 cd /notebooks/learn-langchain
 git clone https://github.com/paolorechia/learn-langchain .
+source activate textgen
 pip install -r requirements.txt --upgrade
 
 # Install GPTQ-for-LLaMa
@@ -68,10 +69,12 @@ if [ ! -d "GPTQ-for-LLaMa" ]; then
     git clone https://github.com/qwopqwop200/GPTQ-for-LLaMa
 fi
 cd GPTQ-for-LLaMa/
+source activate textgen
 pip install -r requirements.txt --upgrade
 
 # Install text-generation-webui required packages and update repository
 cd /notebooks/text-generation-webui
+source activate textgen
 pip install -r requirements.txt --upgrade
 
 # Install ipykernel
@@ -80,7 +83,6 @@ python -m ipykernel install --user --name textgen
 
 # Install custom packages
 
-export PATH="$HOME/miniconda3/bin:$PATH"
 source activate textgen
 
 pip install -r /notebooks/requirements.txt --upgrade
